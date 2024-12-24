@@ -1,5 +1,4 @@
 'use client';
-import { useState, useEffect } from 'react';
 import AnimatedSection from './animated-section';
 
 interface AboutProps {
@@ -7,7 +6,7 @@ interface AboutProps {
 }
 
 export default function About({ language }: AboutProps) {
-  // Definindo o conteúdo de acordo com o idioma
+
   const texts = {
     en: {
       title: "about me",
@@ -19,7 +18,7 @@ export default function About({ language }: AboutProps) {
     }
   };
 
-  const content = texts[language]; // Selecione o conteúdo baseado no idioma
+  const content = texts[language]; 
 
   return (
     <AnimatedSection>

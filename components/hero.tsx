@@ -12,7 +12,7 @@ export default function Hero({ language }: HeroProps) {
   const [isTypingFinished, setIsTypingFinished] = useState(false);
   const [isNameFinished, setIsNameFinished] = useState(false);
   const [isTitleFinished, setIsTitleFinished] = useState(false);
-
+  console.log(isTypingFinished)
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsNameFinished(true);
@@ -65,9 +65,7 @@ export default function Hero({ language }: HeroProps) {
           <h1
             className={`text-3xl md:text-4xl font-medium mb-2 typing-effect ${isNameFinished ? 'finished' : ''}`}
           >
-            {/* Nome para a versão mobile */}
             <span className="block md:hidden">Vítor Hugo</span>
-            {/* Nome para a versão desktop */}
             <span className="hidden md:block">{content.name}</span>
           </h1>
 
@@ -118,7 +116,6 @@ export default function Hero({ language }: HeroProps) {
         </div>
 
         <div className="relative mt-8 md:mt-0">
-          {/* Foto de perfil visível fora da faixa de 420px a 1000px */}
           <div className="w-[200px] h-[200px] md:w-[280px] md:h-[280px] relative z-10 mx-auto block sm:block md:hidden lg:block">
             <Image
               src="/vitor.jpeg"
@@ -130,7 +127,6 @@ export default function Hero({ language }: HeroProps) {
             />
           </div>
 
-          {/* Os quadrados continuam visíveis em todas as larguras */}
           <div className="absolute top-[-20px] left-[50%] translate-x-[-50%] md:translate-x-0 md:left-[-40px] w-[80px] h-[80px] md:w-[100px] md:h-[100px] border border-[#C778DD] z-0"></div>
           <div className="absolute top-[0px] right-[50%] translate-x-[50%] md:translate-x-0 md:right-[0px] w-[80px] h-[80px] md:w-[100px] md:h-[100px] border border-[#C778DD] z-0"></div>
         </div>

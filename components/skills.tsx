@@ -3,7 +3,7 @@ import { SiTypescript, SiExpress, SiDjango, SiSpringboot, SiMysql, SiMongodb, Si
 import AnimatedSection from './animated-section';
 
 interface SkillsProps {
-  language: 'en' | 'pt'; // Define o tipo de variável que vai controlar o idioma
+  language: 'en' | 'pt';
 }
 
 const frontendIcons = [

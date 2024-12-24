@@ -1,11 +1,8 @@
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import AnimatedSection from './animated-section';
 
-// Define um tipo para o idioma
 type Language = 'en' | 'pt';
 
-// Define a interface para o projeto
 interface Project {
   title: {
     en: string;
