@@ -8,14 +8,14 @@ export default function Footer({ language }: FooterProps) {
   const texts = {
     en: {
       name: 'Vitor Hugo A. Schell',
-      email: 'vitorschell@gmail.com',
+      email: 'vitorschell0@gmail.com',
       role: 'Fullstack developer',
       designCredit: 'Design based on the creation of',
       designer: 'Elias'
     },
     pt: {
       name: 'Vitor Hugo A. Schell',
-      email: 'vitorschell@gmail.com',
+      email: 'vitorschell0@gmail.com',
       role: 'Desenvolvedor Fullstack',
       designCredit: 'Design baseado na criação de',
       designer: 'Elias'
