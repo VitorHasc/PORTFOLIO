@@ -4,7 +4,11 @@ import Image from 'next/image';
 import AnimatedSection from './animated-section';
 import { FiMail, FiGithub, FiLinkedin } from 'react-icons/fi';
 
-export default function Hero() {
+interface HeroProps {
+  language: 'en' | 'pt';
+}
+
+export default function Hero({ language }: HeroProps) {
   const [isTypingFinished, setIsTypingFinished] = useState(false);
   const [isNameFinished, setIsNameFinished] = useState(false);
   const [isTitleFinished, setIsTitleFinished] = useState(false);
@@ -30,6 +34,27 @@ export default function Hero() {
     }
   }, [isNameFinished, isTitleFinished]);
 
+  const texts = {
+    en: {
+      name: 'Vítor Hugo de Abreu Schell',
+      title: 'Fullstack Developer',
+      contactButton: 'Get in touch!',
+      email: 'vitorschell0@gmail.com',
+      github: 'GitHub',
+      linkedin: 'LinkedIn',
+    },
+    pt: {
+      name: 'Vítor Hugo de Abreu Schell',
+      title: 'Desenvolvedor Fullstack',
+      contactButton: 'Entre em contato!',
+      email: 'vitorschell0@gmail.com',
+      github: 'GitHub',
+      linkedin: 'LinkedIn',
+    }
+  };
+
+  const content = texts[language];
+
   return (
     <AnimatedSection>
       <section
@@ -40,28 +65,31 @@ export default function Hero() {
           <h1
             className={`text-3xl md:text-4xl font-medium mb-2 typing-effect ${isNameFinished ? 'finished' : ''}`}
           >
+            {/* Nome para a versão mobile */}
             <span className="block md:hidden">Vítor Hugo</span>
-            <span className="hidden md:block">Vítor Hugo de A. Schell</span>
+            {/* Nome para a versão desktop */}
+            <span className="hidden md:block">{content.name}</span>
           </h1>
+
           <br />
           <h2
             className={`text-[#C778DD] text-xl md:text-2xl mb-8 typing-effect ${isTitleFinished ? 'finished' : ''}`}
           >
-            Fullstack Developer
+            {content.title}
           </h2>
           <br />
           <button className="border border-[#C778DD] px-4 py-2 hover:bg-[#C778DD] transition-colors">
-            Entre em contato!
+            {content.contactButton}
           </button>
 
           <div className="mt-8 space-y-4">
             <div className="flex items-center justify-center md:justify-start space-x-2">
               <FiMail className="text-[#C778DD]" />
               <a
-                href="mailto:vitorschell0@gmail.com"
+                href={`mailto:${content.email}`}
                 className="text-lg hover:text-[#C778DD]"
               >
-                vitorschell0@gmail.com
+                {content.email}
               </a>
             </div>
             <div className="flex items-center justify-center md:justify-start space-x-2">
@@ -72,7 +100,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="text-lg hover:text-[#C778DD]"
               >
-                GitHub
+                {content.github}
               </a>
             </div>
             <div className="flex items-center justify-center md:justify-start space-x-2">
@@ -83,14 +111,15 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="text-lg hover:text-[#C778DD]"
               >
-                LinkedIn
+                {content.linkedin}
               </a>
             </div>
           </div>
         </div>
 
         <div className="relative mt-8 md:mt-0">
-          <div className="w-[200px] h-[200px] md:w-[280px] md:h-[280px] relative z-10 mx-auto">
+          {/* Foto de perfil visível fora da faixa de 420px a 1000px */}
+          <div className="w-[200px] h-[200px] md:w-[280px] md:h-[280px] relative z-10 mx-auto block sm:block md:hidden lg:block">
             <Image
               src="/vitor.jpeg"
               alt="Profile"
@@ -100,6 +129,8 @@ export default function Hero() {
               priority
             />
           </div>
+
+          {/* Os quadrados continuam visíveis em todas as larguras */}
           <div className="absolute top-[-20px] left-[50%] translate-x-[-50%] md:translate-x-0 md:left-[-40px] w-[80px] h-[80px] md:w-[100px] md:h-[100px] border border-[#C778DD] z-0"></div>
           <div className="absolute top-[0px] right-[50%] translate-x-[50%] md:translate-x-0 md:right-[0px] w-[80px] h-[80px] md:w-[100px] md:h-[100px] border border-[#C778DD] z-0"></div>
         </div>
