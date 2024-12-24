@@ -3,19 +3,109 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --purple: #C778DD;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.dot-pattern {
+  background-image: radial-gradient(circle, #C778DD 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+/* Estilo para o efeito de digitação */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Estilo para o traço */
+.typing-effect {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 4px solid #C778DD;
+  white-space: nowrap;
+  animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite;
 }
+
+.typing-effect.finished {
+  border-right: none; /* Remove o traço quando a animação terminar */
+}
+
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+
+.geometric-squares {
+  position: relative;
+}
+
+.geometric-squares::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 1px solid var(--purple);
+  top: -20px;
+  right: -20px;
+  z-index: -1;
+}
+
+.geometric-squares::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 1px solid var(--purple);
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.nav-link {
+  color: #ABB2BF;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.project-card {
+  border: 1px solid #ABB2BF;
+  background: #1E2028;
+}
+
+.project-card-header {
+  border-bottom: 1px solid #ABB2BF;
+  padding: 8px;
+}
+
+.live-button {
+  border: 1px solid #ABB2BF;
+  padding: 4px 16px;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.live-button:hover {
+  background: #ABB2BF;
+  color: #1E2028;
+}
+
