@@ -1,4 +1,4 @@
-import { FaJs, FaReact, FaNodeJs, FaDatabase, FaPython, FaJava, FaGit } from 'react-icons/fa';
+import { FaJs, FaReact, FaNodeJs, FaPython, FaJava, FaGit } from 'react-icons/fa';
 import { SiTypescript, SiExpress, SiDjango, SiSpringboot, SiMysql, SiMongodb, SiPostman, SiGithub } from 'react-icons/si';
 import AnimatedSection from './animated-section';
 
